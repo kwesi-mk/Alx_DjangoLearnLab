@@ -1,6 +1,6 @@
 
-
-book_byAuthor = Book.objects.get(author = '')
+Author.objects.get(name=author_name)
+objects.filter(author=author)
 
 
 
