@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Book
 from .models import Library
 from django.shortcuts import render, redirect  
-from django.views.generic import ListView, DetailView 
+from django.views.generic.detail import DetailView 
 # Create your views here.
 
 def all_books(request):
