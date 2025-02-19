@@ -14,6 +14,6 @@ def all_books(request):
 
 class LibraryView(ListView):
     model = Library
-    template = 'library_detail.html' 
+    template =  'relationship_app/library_detail.html'
 
 
