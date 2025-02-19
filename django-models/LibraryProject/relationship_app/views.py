@@ -44,13 +44,13 @@ class LibraryDetailView(DetailView):
 
 
 def is_admin(user):
-    return user.UserProfile.role == 'Admin'
+    return user.role == 'Admin'
 
 def is_librarian(user):
-    return user.UserProfile.role == 'Librarian'
+    return user.role == 'Librarian'
 
 def is_member(user):
-    return user.UserProfile.role == 'Member'
+    return user.role == 'Member'
 
 @user_passes_test(is_admin)
 def admin_view(request):
