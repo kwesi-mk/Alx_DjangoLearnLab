@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from . import views
  
 
-from .views import list_books, LibraryDetailView, Admin_view, librarian_view, member_view 
+from .views import list_books, LibraryDetailView, admin_view, librarian_view, member_view 
 
 app_name = 'relationship_app'
 
