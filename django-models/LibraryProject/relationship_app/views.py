@@ -16,7 +16,7 @@ def is_admin(user):
 
 
 @user_passes_test(is_admin)
-def admin_view(request):
+def Admin_view(request):
     return render(request, 'admin_view.html')
 
 
