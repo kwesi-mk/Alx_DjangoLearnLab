@@ -42,9 +42,9 @@ def list_books(request):
 
 
 
-class LibraryDetailView(DetailView):
-    model = Library
-    template =  'relationship_app/library_detail.html'
+# class LibraryDetailView(DetailView):
+#     model = Library
+#     template =  'relationship_app/library_detail.html'
 
 def is_Admin(user):
     return user.userprofile.role == 'Admin'
