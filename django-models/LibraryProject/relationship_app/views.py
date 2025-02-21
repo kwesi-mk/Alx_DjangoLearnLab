@@ -25,7 +25,7 @@ def register(request):
     else:
         form = UserCreationForm()
 
-    return render(request, 'relationship_app/register.html', {
+    return render(request, 'registration/register.html', {
         'form': form
     })
 #class SignUpView(CreateView):
