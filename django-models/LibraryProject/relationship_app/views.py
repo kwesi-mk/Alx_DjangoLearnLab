@@ -46,27 +46,25 @@ class LibraryDetailView(DetailView):
     model = Library
     template =  'relationship_app/library_detail.html'
 
-def is_admin(user):
+def is_Admin(user):
     return user.UserProfile.role == 'Admin'
 
+def is_Member(user):
+    return user.role == 'Member'
 
-@user_passes_test(is_admin)
+def is_Librarian(user):
+    return user.role == 'Librarian'
+
+@user_passes_test(is_Admin)
 def Admin(request):
     return render(request, 'admin_view.html')
 
-
-def is_librarian(user):
-    return user.role == 'Librarian'
-
-@user_passes_test(is_librarian)
-def librarian_view(request):
+@user_passes_test(is_Librarian)
+def Librarian(request):
     return render(request, 'librarian_view.html')
 
-def is_member(user):
-    return user.role == 'Member'
-
-@user_passes_test(is_member)
-def member_view(request):
+@user_passes_test(is_Member)
+def Member(request):
     return render(request, 'member_view.html')
 
 
