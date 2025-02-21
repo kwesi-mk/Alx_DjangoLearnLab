@@ -4,7 +4,7 @@ from .models import Library
 from .models import UserProfile 
 from django.shortcuts import render, redirect  
 from django.views.generic.detail import DetailView 
-from django.contrib.auth import login
+from django.contrib.auth import login, logout, authenticate 
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from django.urls import reverse_lazy 
