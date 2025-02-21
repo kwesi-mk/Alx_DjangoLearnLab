@@ -47,13 +47,13 @@ class LibraryDetailView(DetailView):
     template =  'relationship_app/library_detail.html'
 
 def is_Admin(user):
-    return user.UserProfile.role == 'Admin'
+    return user.userprofile.role == 'Admin'
 
 def is_Member(user):
-    return user.role == 'Member'
+    return user.userprofile.role == 'Member'
 
 def is_Librarian(user):
-    return user.role == 'Librarian'
+    return user.userprofile.role == 'Librarian'
 
 @user_passes_test(is_Admin)
 def Admin(request):
