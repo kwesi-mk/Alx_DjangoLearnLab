@@ -44,7 +44,7 @@ def register(request):
     else:
         form = UserCreationForm()
 
-    return render(request, 'registration/register.html', {
+    return render(request, 'relationship_app/register.html', {
         'form': form
     })
 #class SignUpView(CreateView):
@@ -61,9 +61,9 @@ def list_books(request):
 
 
 
-# class LibraryDetailView(DetailView):
-#      model = Library
-#      template =  'relationship_app/library_detail.html'
+class LibraryDetailView(DetailView):
+     model = Library
+     template =  'relationship_app/library_detail.html'
 
 
 
