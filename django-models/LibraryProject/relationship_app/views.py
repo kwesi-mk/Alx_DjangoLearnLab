@@ -8,8 +8,9 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from django.urls import reverse_lazy 
-from django.contrib.auth.decorators import user_passes_test, login_required, permission_required  
+from django.contrib.auth.decorators import user_passes_test, login_required  
 from .forms import BookForm
+from django.contrib.auth.decorators import permission_required
 # Create your views here.
 
 def is_admin(user):
@@ -77,7 +78,7 @@ def add_book(request):
         form = BookForm()
     return render(request, 'relationship_app/book_form.html', {'form': form})
 
-@permission_required('relationship_app/book_form.html', raise_exception=True)
+@permission_required('relationship_app/can_change_book', raise_exception=True)
 def edit_book(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     if request.method == 'POST':
