@@ -16,7 +16,9 @@ def article_list(request):
 def article_create(request):
     """Create an article (only for users with can_create permission)"""
     if request.method == "POST":
-        title = request.POST.get("title")
+        title = request.GET.get("title")
+        #books = Book.objects.raw(f"SELECT * FROM bookshelf_book WHERE title = '{title}'")
+        #title = request.POST.get("title")
         content = request.POST.get("content")
         Article.objects.create(title=title, content=content)
         return redirect("article_create.html")
