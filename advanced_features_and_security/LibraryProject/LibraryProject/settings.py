@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-8n4m^#i*z@k(95=)x45p--#9ne2tl33)m6zaw7-)jxo*5vk4uk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+SECURE_SSL_REDIRECT = True 
+
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = "DENY"
 SECURE_CONTENT_TYPE_NOSNIFF = True
