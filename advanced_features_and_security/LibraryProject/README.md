@@ -1,0 +1,1 @@
+This is a sample django project that has the solely the foundation of what a django project is meant to look like.[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[[B[B
