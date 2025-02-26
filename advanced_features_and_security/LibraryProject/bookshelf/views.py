@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404, redirect 
 from django.db.models import Q 
 from .models import Article 
+from .models import Book 
 
 # Create your views here.
 @permission_required("relationship_app.can_view", raise_exception=True)
@@ -37,3 +38,12 @@ def article_delete(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     article.delete
     return redirect("article_list")
+
+def book_list(request):
+    """Secure book search implementation"""
+    query = request.GET.get("q")
+    if query:
+        books = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query))
+    else:
+        books = Book.objects.all()
+    return render(request, "relationship_app/list_book.html", {"books": books}) 
