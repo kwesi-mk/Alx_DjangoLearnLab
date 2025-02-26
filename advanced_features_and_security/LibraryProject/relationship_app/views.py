@@ -108,38 +108,7 @@ def delete_book(request, book_id):
         return redirect('book_list')
     return render(request, 'relationship_app/confirm_delete.html', {'book':book})
 
-@permission_required("relationship_app.can_view", raise_exception=True)
-def article_list(request):
-    """View all articles (only for users with can_view permission)"""
-    articles = Article.objects.all()
-    return render(request, "article_list.html", {"articles": articles})
 
-@permission_required("relationship_app.can_create", raise_exception=True)
-def article_create(request):
-    """Create an article (only for users with can_create permission)"""
-    if request.method == "POST":
-        title = request.POST.get("title")
-        content = request.POST.get("content")
-        Article.objects.create(title=title, content=content)
-        return redirect("article_create.html")
-    
-@permission_required("relationship_app.can_edit", raise_exception=True)
-def article_edit(request, article_id):
-    """Edit an article (only for users with can_edit permission)"""
-    article = get_object_or_404(Article, id=article_id)
-    if request.method == "POST":
-        article.title = request.POST.get("title")
-        article.content = request.POST.get("content")
-        article.save()
-        return redirect("article_list")
-    return render(request, "article_edit.html", {"articlec": article})
-
-@permission_required("relationship_app.can_delete", raise_exception=True)
-def article_delete(request, article_id):
-    """Delete an article (only for users with can_delete permission)"""
-    article = get_object_or_404(Article, id=article_id)
-    article.delete
-    return redirect("article_list")
 
 
 
