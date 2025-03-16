@@ -8,6 +8,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
+from rest_framework import filters
 
 # Create your views here.
 
@@ -32,7 +33,7 @@ class CustomBookListView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     pagination_class = BookPagination
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filter_backends = [DjangoFilterBackend, SearchFilter, filters.OrderingFilter]
 
     #Filtering
     filterset_fields = ['title', 'author', 'publication_year']
@@ -41,6 +42,7 @@ class CustomBookListView(generics.ListAPIView):
     search_fields = ['title', 'author']
 
     #Ordering
+    #filter_backends = [filters.OrderingFilter]
     ordering_fields = ['title', 'publication_year']
     ordering = ['title'] #Default ordering
 
