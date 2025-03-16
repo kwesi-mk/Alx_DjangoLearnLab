@@ -33,7 +33,7 @@ class CustomBookListView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     pagination_class = BookPagination
-    filter_backends = [DjangoFilterBackend, filter.SearchFilter, filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
 
     #Filtering
     filterset_fields = ['title', 'author', 'publication_year']
