@@ -43,7 +43,7 @@ class PostForm(forms.ModelForm):
     tags = forms.CharField(required=False, help_text="Enter tags seperated by commas.")
     class Meta:
         model = Post
-        fields = ['title', 'content', 'tags']
+        fields = ['title', 'content', 'TagWidget()']
 
     def save(self, commit=True):
         post = super().save(commit=False)
