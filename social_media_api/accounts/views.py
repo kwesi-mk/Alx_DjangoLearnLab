@@ -8,6 +8,7 @@ from .serializers import RegisterSerializer, UserSerializer
 from django.contrib.auth import get_user_model 
 from django.shortcuts import get_object_or_404
 from accounts.model import CustomUser
+from rest_framework import viewsets, permissions
 
 # Create your views here.
 User = get_user_model()
@@ -38,6 +39,8 @@ class LoginView(generics.GenericAPIView):
     
 @api_view(['POST'])
 def follow_user(request, user_id):
+    users = CustomUser.objects.all()
+    permissions_classes = permissions.IsAuthenticated 
     user_to_follow = get_object_or_404(CustomUser, id=user_id)
     request.user.follow(user_to_follow)
     return Response({'message': 'Followed successfully'})
