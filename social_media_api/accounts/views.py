@@ -44,7 +44,7 @@ def follow_user(request, user_id):
 
 @api_view(['POST'])
 def unfollow_user(request, user_id):
-    user_to_follow = get_objec_or_404(CustomUser, id=user_id)
+    user_to_follow = get_object_or_404(CustomUser, id=user_id)
     request.user.unfollow(user_to_unfollow)
     return Response({'message': 'Unfollowed successfully'})
 
