@@ -41,4 +41,15 @@ def like_post(request, post_id):
         like.delete()
         return Response({'message': 'Unliked successfully'})
     return Response({'message': 'Liked successfully'})
+
+@api_view(['POST'])
+def unlike_post(request, post_id):
+    post = generics.get_object_or_404(Post, pk=pk)
+    post = Post.objects.get(id=post_id)
+    like, created = Like.objects.get_or_create(user=request.user, post=post)
+    like = Notification.objects.create()
+    if not created:
+        like.delete()
+        return Response({'message': 'Unliked successfully'})
+    return Response({'message': 'Liked successfully'})
     
