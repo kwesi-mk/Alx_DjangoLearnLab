@@ -10,6 +10,6 @@ urlpatterns = router.urls
 
 urlpatterns += [
     path('feed/', user_feed, name='user-feed'),
-    path('<int:pk>like/', like_post, name='like-post'),
-    path('<int:pk>unlike/', unlike_post, name='unlike-post'),
+    path('<int:pk>/like/', like_post, name='like-post'),
+    path('<int:pk>/unlike/', unlike_post, name='unlike-post'),
 ]
