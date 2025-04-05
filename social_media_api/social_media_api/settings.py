@@ -90,6 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'PORT': os.environ.get('DB_PORT', '5432'),  # Explicitly set PORT
     }
 }
 
